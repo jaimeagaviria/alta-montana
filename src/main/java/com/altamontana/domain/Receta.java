@@ -1,12 +1,10 @@
 package com.altamontana.domain;
 
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 
 @Entity
-@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Table(name = "receta",
         indexes = {@Index(name = "receta_pk", columnList = "receta_id", unique = true),
                    @Index(name = "nombre", columnList = "nombre", unique = true)})
@@ -14,7 +12,7 @@ public class Receta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "sec_receta_id")
-    @SequenceGenerator(name = "sec_agencia_id", sequenceName = "sec_receta", allocationSize = 1, initialValue = 1)
+    @SequenceGenerator(name = "sec_receta_id", sequenceName = "sec_receta", allocationSize = 1, initialValue = 1)
     @Column(name = "receta_id")
     private Integer recetaID;
 
