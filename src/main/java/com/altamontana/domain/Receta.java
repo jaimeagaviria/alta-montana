@@ -1,13 +1,15 @@
 package com.altamontana.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "receta",
+@Table(name = "recetas",
         indexes = {@Index(name = "receta_pk", columnList = "receta_id", unique = true),
-                   @Index(name = "nombre", columnList = "nombre", unique = true)})
+                   @Index(name = "nombre_idx", columnList = "nombre", unique = true)})
 public class Receta {
 
     @Id
@@ -27,6 +29,10 @@ public class Receta {
     @NotBlank
     @Column(name = "densidad_final", nullable = false)
     private Integer densidadFinal;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "receta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public List<Componente> componentes;
 
     public Integer getRecetaID() {
         return recetaID;
