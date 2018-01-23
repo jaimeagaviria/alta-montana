@@ -1,5 +1,6 @@
 package com.altamontana;
 
+import com.altamontana.repository.impl.AbstractRepositoryImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,6 +15,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan("com.altamontana.*")
+@EnableJpaRepositories(repositoryBaseClass = AbstractRepositoryImpl.class)
 @EnableCaching
 @EnableScheduling
 @EnableAsync

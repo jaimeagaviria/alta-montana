@@ -23,6 +23,10 @@ public class Componente {
     private Receta receta;
 
     @NotBlank
+    @Column(name = "orden", nullable = false)
+    private Integer orden;
+
+    @NotBlank
     @Column(name = "proceso", length = 100, nullable = false)
     private String proceso;
 
@@ -84,5 +88,13 @@ public class Componente {
 
     public void setReceta(Receta receta) {
         this.receta = receta;
+    }
+
+    public Integer getOrden() {
+        return orden;
+    }
+
+    public void setOrden(Integer orden) {
+        this.orden = orden;
     }
 }

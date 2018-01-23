@@ -23,6 +23,10 @@ public class Bitacora {
     @Column(name = "bitacora_id")
     private Long bitacoraID;
 
+    @NotBlank
+    @Column(name = "numero_proceso", nullable = false)
+    private Integer numeroProceso;
+
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "receta_id", nullable = false, foreignKey = @ForeignKey(name = "fk_bitacora_recetas"))
@@ -128,5 +132,13 @@ public class Bitacora {
 
     public void setObservacion(String observacion) {
         this.observacion = observacion;
+    }
+
+    public Integer getNumeroProceso() {
+        return numeroProceso;
+    }
+
+    public void setNumeroProceso(Integer numeroProceso) {
+        this.numeroProceso = numeroProceso;
     }
 }
