@@ -2,8 +2,11 @@ package com.altamontana.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -22,11 +25,11 @@ public class Receta {
     @Column(name = "nombre", length = 75, nullable = false)
     private String nombre;
 
-    @NotBlank
+    @NotNull
     @Column(name = "densidad_inicial", nullable = false)
     private Integer densidadInicial;
 
-    @NotBlank
+    @NotNull
     @Column(name = "densidad_final", nullable = false)
     private Integer densidadFinal;
 
