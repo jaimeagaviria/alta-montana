@@ -22,7 +22,7 @@ public class Componente {
     @JoinColumn(name = "receta_id", nullable = false, foreignKey = @ForeignKey(name = "fk_componentes_recetas"))
     private Receta receta;
 
-    @NotBlank
+    @NotNull
     @Column(name = "orden", nullable = false)
     private Integer orden;
 
@@ -34,7 +34,7 @@ public class Componente {
     @Column(name = "nombre_componente", length = 100, nullable = false)
     private String nombreComponente;
 
-    @NotBlank
+    @NotNull
     @Column(name = "cantidad_teorica", nullable = false)
     private Integer cantidadTeorica;
 

@@ -3,7 +3,7 @@ angular.module("myApp")
         var dataService = {};
 
         dataService.guardarReceta = function (receta){
-            return $http.post('/receta/guardar', receta);
+            return $http.post('/recetas', receta);
         }
 
         dataService.listarRecetas = function (){

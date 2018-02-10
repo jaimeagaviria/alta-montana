@@ -1,63 +1,121 @@
 <div>
-    recetas
-
+    <h1>Recetas</h1>
     <button type="button" class="btn btn-info" ng-click="nuevaReceta()">Crear Receta</button>
-
-    <div>
-        <ul class="list-group" ng-repeat="receta in recetas">
-            <li class="list-group-item">{{receta.nombre}}</li>
-        </ul>
-    </div>
-
-    <div ng-show="nuevaRecetaVisible">
-        <form name="formulario" class="form-inline">
-            <div class="form-group">
-                <label>Nombre: </label>
-                <input type="text" class="form-control" id="txtNombre" name="nombre" ng-model="receta.nombre">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <div class="list-group">
+                    <ul style="list-style:none;">
+                        <li ng-repeat="receta in recetas">
+                            <button type="button" class="list-group-item list-group-item-action" ng-click="seleccionarReceta(receta)">{{receta.nombre}}</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label>Densidad Inicial: </label>
-                <input type="text" class="form-control" id="txtDensidadInicial" name="densidadInicial" ng-model="receta.densidadInicial">
-            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <div ng-show="nuevaRecetaVisible">
+                    <div class="card">
+                        <div class="card-body div-card">
 
-            <div class="form-group">
-                <label>Densidad Final: </label>
-                <input type="text" class="form-control" id="txtDensidadFinal" name="densidadFinal" ng-model="receta.densidadFinal">
-            </div>
+                            <h3 class="card-title">Información Receta</h3>
+                            <form name="formularioRecetas" class="form-inline">
+                                <div class="form-group">
+                                    <label>Nombre: </label>
+                                    <input type="text" class="form-control" id="txtNombre" name="nombre" ng-model="receta.nombre">
+                                </div>
 
-            <div>
-                <button type="button" class="btn btn-success" ng-click="guardarReceta(receta)">Guardar</button>
-            </div>
-        </form>
+                                <div class="form-group">
+                                    <label>Densidad Inicial: </label>
+                                    <input type="number" class="form-control" id="txtDensidadInicial" name="densidadInicial" ng-model="receta.densidadInicial">
+                                </div>
 
-        <div class="regresar">
-            <button type="button" class="btn btn-success" ng-click="duplicar(receta)">Duplicar</button>
+                                <div class="form-group">
+                                    <label>Densidad Final: </label>
+                                    <input type="number" class="form-control" id="txtDensidadFinal" name="densidadFinal" ng-model="receta.densidadFinal">
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-success" ng-click="guardarReceta(receta)">Guardar</button>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-info" ng-click="duplicar(receta)">Duplicar</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="button" class="btn btn-success" ng-show="receta" ng-click="nuevoComponente(receta)">Nuevo Componente</button>
+                </div>
+                <div class="card">
+                    <div class="card-body div-card">
+                        <div class="panel-body" ng-show="nuevoComponenteVisible">
+                            <h3 class="card-title">Información Componente</h3>
+
+                            <form name="formularioComponentes" class="form-inline">
+                                <div class="form-group">
+                                    <label>Proceso: </label>
+                                    <input type="text" class="form-control" id="txtProceso" name="proceso" ng-model="componente.proceso">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Orden: </label>
+                                    <input type="text" class="form-control" id="txtOrden" name="orden" ng-model="componente.orden">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Nombre: </label>
+                                    <input type="text" class="form-control" id="txtNombreComponente" name="nombreComponente" ng-model="componente.nombreComponente">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Cantidad Teorica: </label>
+                                    <input type="number" class="form-control" id="txtCantidadTeorica" name="cantidadTeorica" ng-model="componente.cantidadTeorica">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Unidad Medida: </label>
+                                    <input type="text" class="form-control" id="txtUnidadMedida" name="unidadMedida" ng-model="componente.unidadmedida">
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-success" ng-click="guardarComponente(componente)">Guardar</button>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-danger" ng-click="cancelarComponente()">Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Proceso</th>
+                            <th>Orden</th>
+                            <th>Nombre Componente</th>
+                            <th>Cantidad Teorica</th>
+                            <th>Unidad Medida</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="componente in componentes">
+                            <td>{{componente.proceso}}</td>
+                            <td>{{componente.orden}}</td>
+                            <td>{{componente.nombreComponente}}</td>
+                            <td>{{componente.cantidadTeorica}}</td>
+                            <td>{{componente.unidadmedida}}</td>
+                            <td><button type="button" class="btn btn-info" ng-click="editarComponente(componente)">Editar</button> <button type="button" class="btn btn-danger" ng-click="eliminarComponente(componente.componenteID)">Eliminar</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div class="regresar">
-        <button type="button" class="btn btn-success" ng-click="duplicar(receta)">Nuevo Componente</button>
-    </div>
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th>Proceso</th>
-            <th>Orden</th>
-            <th>Nombre Componente</th>
-            <th>Cantidad Teorica</th>
-            <th>Unidad medida</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="componente in componentes">
-            <td>{{componente.proceso}}</td>
-            <td>{{componente.orden}}</td>
-            <td>{{componente.nombreComponente}}</td>
-            <td>{{componente.cantidadTeorica}}</td>
-            <td>{{componente.unidadmedida}}</td>
-            <td><button type="button" class="btn btn-info" ng-click="editar(factor)">Editar</button> <button type="button" class="btn btn-danger">Eliminar</button></td>
-        </tr>
-        </tbody>
-    </table>
 </div>

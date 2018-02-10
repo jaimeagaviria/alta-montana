@@ -5,6 +5,10 @@ angular.module("myApp", ['ngRoute','ui.bootstrap','ngAnimate','ngSanitize'])
             when('/recetas', {
                 templateUrl: 'receta.html',
                 controller: 'recetasController'
+            }).
+            when('/bitacora', {
+                templateUrl: 'bitacora.html',
+                controller: 'bitacoraController'
             });
 
 }]);
