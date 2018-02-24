@@ -5,7 +5,7 @@ angular.module("myApp")
             recetasServices.listarRecetas().then(function (response){
                 $scope.recetas = response.data.data;
             }, function (response) {
-                alert("Error listando");
+                alert("Error listando recetas");
             });
         }
 
@@ -13,7 +13,7 @@ angular.module("myApp")
             componentesServices.listarComponentes($scope.receta.recetaID).then(function (response){
                 $scope.componentes = response.data.data;
             }, function (response) {
-                alert("Error listando");
+                alert("Error listando componentes");
             });
         }
 

@@ -15,6 +15,6 @@ public class ComponenteController extends AbstractRestController<Componente,Inte
 
     @Override
     Class<Componente> getTClass() {
-        return null;
+        return Componente.class;
     }
 }

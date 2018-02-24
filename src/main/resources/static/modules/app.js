@@ -10,5 +10,4 @@ angular.module("myApp", ['ngRoute','ui.bootstrap','ngAnimate','ngSanitize'])
                 templateUrl: 'bitacora.html',
                 controller: 'bitacoraController'
             });
-
 }]);
