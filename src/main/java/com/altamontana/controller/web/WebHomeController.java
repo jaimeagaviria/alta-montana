@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class WebHomeController {
 
-    @RequestMapping("")
+    /*@RequestMapping("")
     public String index() {
         return "index";
-    }
+    }*/
 
     @RequestMapping("/page/recetas")
     public String recetas() {
