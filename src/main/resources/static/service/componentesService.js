@@ -7,7 +7,7 @@ angular.module("myApp")
         }
 
         dataService.listarComponentes = function (recetaID){
-            return $http.get('/componentes?filter=receta.recetaID=' + recetaID);
+            return $http.get('/componentes?sort=orden&filter=receta.recetaID=' + recetaID);
         }
 
         dataService.eliminarComponente = function (componenteID){

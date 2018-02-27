@@ -1,9 +1,13 @@
 <div>
-    <h1>Recetas</h1>
-    <button type="button" class="btn btn-info" ng-click="nuevaReceta()">Crear Receta</button>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-3 col-md-2 sidebar">
+
+            <div class="col-sm-12 col-md-12">
+                <h2>Recetas</h2>
+                <button type="button" class="btn btn-info" ng-click="nuevaReceta()">Crear Receta</button>
+            </div>
+
+            <div class="col-sm-3 col-md-3">
                 <div class="list-group">
                     <ul style="list-style:none;">
                         <li ng-repeat="receta in recetas">
@@ -13,7 +17,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div class="col-sm-9 col-md-9">
                 <div ng-show="nuevaRecetaVisible">
                     <div class="card">
                         <div class="card-body div-card">
@@ -27,12 +31,12 @@
 
                                 <div class="form-group">
                                     <label>Densidad Inicial: </label>
-                                    <input type="number" class="form-control" id="txtDensidadInicial" name="densidadInicial" ng-model="receta.densidadInicial">
+                                    <input type="number" class="form-control" id="txtDensidadInicial" name="densidadInicial" ng-model="receta.densidadInicial" style="width: 100px">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Densidad Final: </label>
-                                    <input type="number" class="form-control" id="txtDensidadFinal" name="densidadFinal" ng-model="receta.densidadFinal">
+                                    <input type="number" class="form-control" id="txtDensidadFinal" name="densidadFinal" ng-model="receta.densidadFinal" style="width: 100px">
                                 </div>
 
                                 <div class="form-group">
@@ -49,7 +53,7 @@
                 </div>
 
                 <div>
-                    <button type="button" class="btn btn-success" ng-show="receta" ng-click="nuevoComponente(receta)">Nuevo Componente</button>
+                    <button type="button" class="btn btn-success" ng-show="receta" ng-click="nuevoComponente(receta)" style="margin-bottom: 5px">Nuevo Componente</button>
                 </div>
                 <div class="card">
                     <div class="card-body div-card">
