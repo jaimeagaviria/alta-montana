@@ -26,5 +26,4 @@ public class AltamontanaApplication extends SpringBootServletInitializer{
 		SpringApplication.run(AltamontanaApplication.class, args);
 	}
 
-
 }
