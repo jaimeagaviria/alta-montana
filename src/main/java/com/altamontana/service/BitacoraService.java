@@ -48,6 +48,6 @@ public class BitacoraService extends AbstractServiceImpl<Bitacora, Long> {
             bitacoraRepository.save(bitacora);
         }
 
-        return bitacoraRepository.findByNumeroProceso(ultimoLote);
+        return bitacoraRepository.findByNumeroProcesoOrderByOrden(ultimoLote);
     }
 }

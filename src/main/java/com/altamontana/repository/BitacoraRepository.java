@@ -10,5 +10,5 @@ public interface BitacoraRepository extends AbstractRepository<Bitacora, Long> {
     @Query("SELECT MAX(x.numeroProceso) FROM Bitacora x")
     Integer findUltimoLote();
 
-    List<Bitacora> findByNumeroProceso(Integer ultimoLote);
+    List<Bitacora> findByNumeroProcesoOrderByOrden(Integer ultimoLote);
 }
