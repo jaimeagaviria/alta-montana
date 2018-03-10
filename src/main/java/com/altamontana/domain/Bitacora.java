@@ -23,7 +23,6 @@ public class Bitacora {
     @Column(name = "bitacora_id")
     private Long bitacoraID;
 
-    @NotBlank
     @Column(name = "numero_proceso", nullable = false)
     private Integer numeroProceso;
 
@@ -34,8 +33,12 @@ public class Bitacora {
 
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
-    @Column(name = "fecha_hora", nullable = false)
-    private Date fechaHora = new Date();
+    @Column(name = "fecha_hora", nullable = true)
+    private Date fechaHora ;
+
+    @NotNull
+    @Column(name = "orden", nullable = false)
+    private Integer orden;
 
     @NotBlank
     @Column(name = "proceso", length = 100, nullable = false)
@@ -46,19 +49,16 @@ public class Bitacora {
     @JoinColumn(name = "componente_id", nullable = false, foreignKey = @ForeignKey(name = "fk_bitacora_componentes"))
     private Componente componente;
 
-    @NotBlank
     @Column(name = "cantidad_teorica", nullable = false)
     private Integer cantidadTeorica;
 
-    @NotBlank
-    @Column(name = "cantidad_real", nullable = false)
+    @Column(name = "cantidad_real", nullable = true)
     private Integer cantidadReal;
 
     @NotBlank
     @Column(name = "unidad_medida", length = 10, nullable = false)
     private String unidadmedida;
 
-    @NotBlank
     @Column(name = "observacion", length = 400, nullable = true)
     private String observacion;
 
@@ -140,5 +140,13 @@ public class Bitacora {
 
     public void setNumeroProceso(Integer numeroProceso) {
         this.numeroProceso = numeroProceso;
+    }
+
+    public Integer getOrden() {
+        return orden;
+    }
+
+    public void setOrden(Integer orden) {
+        this.orden = orden;
     }
 }
