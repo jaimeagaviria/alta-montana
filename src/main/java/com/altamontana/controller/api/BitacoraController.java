@@ -2,7 +2,6 @@ package com.altamontana.controller.api;
 
 import com.altamontana.common.rest.RestResponse;
 import com.altamontana.domain.Bitacora;
-import com.altamontana.service.AbstractService;
 import com.altamontana.service.BitacoraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,7 +35,6 @@ public class BitacoraController extends AbstractRestController<Bitacora,Long> {
             produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<RestResponse> crearLote(@PathVariable("recetaID") Integer recetaID,
                                                   HttpServletRequest request) {
-
 
         try {
             List<Bitacora> bitacoraList = bitacoraService.crearLote(recetaID);

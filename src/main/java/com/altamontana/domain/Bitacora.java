@@ -34,7 +34,7 @@ public class Bitacora {
     @JsonSerialize(using = CustomDateTimeSerializer.class)
     @JsonDeserialize(using = CustomDateTimeDeserializer.class)
     @Column(name = "fecha_hora", nullable = true)
-    private Date fechaHora ;
+    private Date fechaHora;
 
     @NotNull
     @Column(name = "orden", nullable = false)
