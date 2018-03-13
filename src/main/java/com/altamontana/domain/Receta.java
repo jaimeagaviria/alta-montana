@@ -34,7 +34,7 @@ public class Receta {
     private Integer densidadFinal;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "receta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "receta", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public List<Componente> componentes;
 
     public Integer getRecetaID() {
