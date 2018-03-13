@@ -1,7 +1,8 @@
 package com.altamontana.controller.api;
 
 import com.altamontana.domain.Componente;
-import com.altamontana.service.AbstractService;
+import com.altamontana.service.ComponenteService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,8 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/componentes")
 public class ComponenteController extends AbstractRestController<Componente,Integer>{
 
-    public ComponenteController(AbstractService<Componente, Integer> genericService) {
-        super(genericService);
+    @Autowired
+    public ComponenteController(ComponenteService componenteService) {
+        super(componenteService);
     }
 
     @Override

@@ -78,18 +78,17 @@ public abstract class AbstractServiceImpl<E, K extends Serializable> implements 
     }
 
     @Override
-    @Transactional(readOnly = false)
     public boolean deleteById(K id) {
         E entity = findOne(id);
         return delete(entity);
     }
 
     @Override
-    @Transactional(readOnly = false)
     public boolean delete(E entity) {
         boolean respuesta = false;
         try {
             daoObject.delete(entity);
+            daoObject.flush();
             respuesta = true;
         } catch (Exception e) {
             respuesta = false;
