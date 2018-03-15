@@ -1,9 +1,11 @@
 package com.altamontana.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name = "componentes",
@@ -41,6 +43,10 @@ public class Componente {
     @NotBlank
     @Column(name = "unidad_medida", length = 10, nullable = false)
     private String unidadmedida;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "componente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public List<Bitacora> bitacoras;
 
     public Integer getComponenteID() {
         return componenteID;
@@ -96,5 +102,13 @@ public class Componente {
 
     public void setOrden(Integer orden) {
         this.orden = orden;
+    }
+
+    public List<Bitacora> getBitacoras() {
+        return bitacoras;
+    }
+
+    public void setBitacoras(List<Bitacora> bitacoras) {
+        this.bitacoras = bitacoras;
     }
 }

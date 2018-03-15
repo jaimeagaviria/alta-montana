@@ -1,6 +1,5 @@
 package com.altamontana.controller.api;
 
-import com.altamontana.common.Constantes;
 import com.altamontana.common.exception.ValidacionException;
 import com.altamontana.common.rest.RestResponse;
 import com.altamontana.service.AbstractService;
@@ -237,7 +236,7 @@ public abstract class AbstractRestController<E, K extends Serializable> extends 
         List<String> errores;
         try {
             newEntity = this.genericService.save(entity);
-            if (debug) LOGGER.debug("Registro guardado {}", gsonBean.toJson(newEntity));
+            //if (debug) LOGGER.debug("Registro guardado {}", gsonBean.toJson(newEntity));
         }catch (DataIntegrityViolationException ex) {
             LOGGER.error(String.format(GENERAL_ERROR, request.getRequestURI(), request.getQueryString(), ex));
 

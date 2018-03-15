@@ -1,11 +1,7 @@
 package com.altamontana.controller.api;
 
 import com.altamontana.common.rest.RestResponse;
-import com.altamontana.domain.Bitacora;
-import com.altamontana.domain.Componente;
 import com.altamontana.domain.Receta;
-import com.altamontana.service.AbstractService;
-import com.altamontana.service.ComponenteService;
 import com.altamontana.service.RecetaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @RestController
 @RequestMapping("/recetas")
