@@ -1,5 +1,6 @@
 package com.altamontana.service;
 
+import com.altamontana.dto.LoteDto;
 import com.altamontana.domain.Bitacora;
 import com.altamontana.domain.Componente;
 import com.altamontana.domain.Receta;
@@ -49,5 +50,9 @@ public class BitacoraService extends AbstractServiceImpl<Bitacora, Long> {
         }
 
         return bitacoraRepository.findByNumeroProcesoOrderByOrden(ultimoLote);
+    }
+
+    public List<LoteDto> obtenerUltimosLotes() {
+        return bitacoraRepository.obtenerUltimosLotes();
     }
 }
