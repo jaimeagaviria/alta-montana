@@ -23,6 +23,9 @@ public class Receta {
     @Column(name = "nombre", length = 75, nullable = false)
     private String nombre;
 
+    @Column(name = "descripcion", length = 500, nullable = true)
+    private String descripcion;
+
     @NotNull
     @Column(name = "densidad_inicial", nullable = false)
     private Integer densidadInicial;
@@ -30,6 +33,9 @@ public class Receta {
     @NotNull
     @Column(name = "densidad_final", nullable = false)
     private Integer densidadFinal;
+
+    @Column(name = "litros_finales", nullable = true)
+    private Integer litrosFinales;
 
     @JsonIgnore
     @OneToMany(mappedBy = "receta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -65,5 +71,29 @@ public class Receta {
 
     public void setDensidadFinal(Integer densidadFinal) {
         this.densidadFinal = densidadFinal;
+    }
+
+    public Integer getLitrosFinales() {
+        return litrosFinales;
+    }
+
+    public void setLitrosFinales(Integer litrosFinales) {
+        this.litrosFinales = litrosFinales;
+    }
+
+    public List<Componente> getComponentes() {
+        return componentes;
+    }
+
+    public void setComponentes(List<Componente> componentes) {
+        this.componentes = componentes;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }
