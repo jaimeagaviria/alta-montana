@@ -31,3 +31,18 @@ dependencies {
 	compile(group: 'com.google.code.gson', name: 'gson', version: '2.8.2')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+def webappDir = "../alta-montana-web"
+//def staticDir = "$projectDir/build/resources/main/static/"
+def staticDir = "$projectDir/src/main/resources/static/"
+
+task buildAngular(type:Exec) {
+	System.out.println(staticDir)
+
+	workingDir "$webappDir"
+	group = BasePlugin.BUILD_GROUP
+	if (System.getProperty("os.name").toUpperCase().contains("WINDOWS")){
+		commandLine "ng.cmd", "build", "-t", "production", "--output-path", "$staticDir"
+	} else {
+		commandLine "ng", "build", "-t", "production", "--output-path", "$staticDir"
+	}
+}
