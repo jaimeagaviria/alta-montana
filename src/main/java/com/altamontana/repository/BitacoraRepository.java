@@ -13,6 +13,6 @@ public interface BitacoraRepository extends AbstractRepository<Bitacora, Long> {
 
     List<Bitacora> findByNumeroProcesoOrderByOrden(Integer ultimoLote);
 
-    @Query("SELECT DISTINCT new com.altamontana.LoteDto(b.numeroProceso, b.receta.nombre) FROM Bitacora b ORDER BY b.numeroProceso DESC")
+    @Query("SELECT DISTINCT new com.altamontana.dto.LoteDto (b.numeroProceso, b.receta.nombre) FROM Bitacora b ORDER BY b.numeroProceso DESC")
     List<LoteDto> obtenerUltimosLotes();
 }

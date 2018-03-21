@@ -1,7 +1,5 @@
 package com.altamontana.dto;
 
-import java.util.Date;
-
 public class LoteDto {
 
     private Integer numeroProceso;
