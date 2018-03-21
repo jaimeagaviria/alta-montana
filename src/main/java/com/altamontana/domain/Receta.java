@@ -37,6 +37,9 @@ public class Receta {
     @Column(name = "litros_finales", nullable = true)
     private Integer litrosFinales;
 
+    @Column(name = "srm", nullable = true)
+    private Integer srm;
+
     @JsonIgnore
     @OneToMany(mappedBy = "receta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     public List<Componente> componentes;
@@ -95,5 +98,13 @@ public class Receta {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Integer getSrm() {
+        return srm;
+    }
+
+    public void setSrm(Integer srm) {
+        this.srm = srm;
     }
 }
