@@ -50,10 +50,10 @@ public class Bitacora {
     private Componente componente;
 
     @Column(name = "cantidad_teorica", nullable = false)
-    private Integer cantidadTeorica;
+    private Long cantidadTeorica;
 
     @Column(name = "cantidad_real", nullable = true)
-    private Integer cantidadReal;
+    private Long cantidadReal;
 
     @NotBlank
     @Column(name = "unidad_medida", length = 10, nullable = false)
@@ -102,19 +102,19 @@ public class Bitacora {
         this.componente = componente;
     }
 
-    public Integer getCantidadTeorica() {
+    public Long getCantidadTeorica() {
         return cantidadTeorica;
     }
 
-    public void setCantidadTeorica(Integer cantidadTeorica) {
+    public void setCantidadTeorica(Long cantidadTeorica) {
         this.cantidadTeorica = cantidadTeorica;
     }
 
-    public Integer getCantidadReal() {
+    public Long getCantidadReal() {
         return cantidadReal;
     }
 
-    public void setCantidadReal(Integer cantidadReal) {
+    public void setCantidadReal(Long cantidadReal) {
         this.cantidadReal = cantidadReal;
     }
 
