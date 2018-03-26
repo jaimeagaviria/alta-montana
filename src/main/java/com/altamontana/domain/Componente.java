@@ -38,7 +38,7 @@ public class Componente {
 
     @NotNull
     @Column(name = "cantidad_teorica", nullable = false)
-    private Long cantidadTeorica;
+    private Double cantidadTeorica;
 
     @NotBlank
     @Column(name = "unidad_medida", length = 10, nullable = false)
@@ -72,11 +72,11 @@ public class Componente {
         this.nombreComponente = nombreComponente;
     }
 
-    public Long getCantidadTeorica() {
+    public Double getCantidadTeorica() {
         return cantidadTeorica;
     }
 
-    public void setCantidadTeorica(Long cantidadTeorica) {
+    public void setCantidadTeorica(Double cantidadTeorica) {
         this.cantidadTeorica = cantidadTeorica;
     }
 
