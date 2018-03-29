@@ -55,4 +55,8 @@ public class BitacoraService extends AbstractServiceImpl<Bitacora, Long> {
     public List<LoteDto> obtenerUltimosLotes() {
         return bitacoraRepository.obtenerUltimosLotes();
     }
+
+    public void eliminarLote(Integer lote) {
+        bitacoraRepository.eliminarLote(lote);
+    }
 }

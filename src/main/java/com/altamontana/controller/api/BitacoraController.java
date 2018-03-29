@@ -69,4 +69,24 @@ public class BitacoraController extends AbstractRestController<Bitacora,Long> {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @CrossOrigin(origins = "*")
+    @RequestMapping(value = "eliminarLote/{lote}", method = RequestMethod.DELETE,
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<RestResponse> eliminarLote(@PathVariable("lote") Integer lote) {
+        try {
+            bitacoraService.eliminarLote(lote);
+
+            RestResponse restResponseDto = new RestResponse();
+            restResponseDto.setStatus(HttpStatus.OK.value());
+            restResponseDto.setMessage(HttpStatus.OK.name());
+            restResponseDto.setData(null);
+            restResponseDto.setErrors(null);
+
+            return new ResponseEntity<>(restResponseDto, HttpStatus.OK);
+        } catch (Exception ex){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
